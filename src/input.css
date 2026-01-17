@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@theme {
+    /* Match these names to what you use in the @layer base below */
+    --background-image-mobile-pattern: url('../images/bg-mobile.png');
+    --background-image-desktop-pattern: url('../images/bg-desktop.png');
+    --color-blue-200: hsl(243, 100%, 93%);
+    --color-grayish-blue: hsl(229, 7%, 55%);
+    --color-blue-850: hsl(228, 56%, 26%);
+    --color-blue-950: hsl(229, 57%, 11%);
+    --background-image-primary-gradient: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    --font-raleway: "Raleway", sans-serif;
+}
+
+@layer base {
+    body {
+        /* Use the Blue 950 from the style guide for the background color */
+        @apply bg-blue-950 bg-no-repeat bg-bottom min-h-screen flex items-center justify-center font-raleway text-[14px];
+        background-image: var(--background-image-mobile-pattern);
+    }
+    @media (min-width: 768px) {
+        body {
+            background-image: var(--background-image-desktop-pattern);
+            background-size: 100% 50%;
+        }
+    }
+}
